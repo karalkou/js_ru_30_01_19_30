@@ -1,21 +1,14 @@
 import React, {Component} from 'react'
+import CommentsBlock from './CommentsBlock'
 
 export default class Article extends Component {
     state = {
         isOpen: false
-    }
-/*
-    constructor(props) {
-        super(props)
-        this.state = {
-            isOpen: props.defaultOpen
-        }
-    }
-*/
+    };
 
     render() {
-        const {article} = this.props
-        console.log('---', 123)
+        const {article} = this.props;
+        console.log('---', 123);
         return (
             <div>
                 <h3 onClick={this.handleClick}>{article.title}</h3>
@@ -25,12 +18,15 @@ export default class Article extends Component {
     }
 
     getBody() {
-        if (!this.state.isOpen) return null
+        if (!this.state.isOpen) return null;
 
         return (
-            <section>
-                {this.props.article.text}
-            </section>
+            <div>
+                <section>
+                    {this.props.article.text}
+                </section>
+                <CommentsBlock/>
+            </div>
         )
     }
 

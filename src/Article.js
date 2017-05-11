@@ -25,7 +25,7 @@ export default class Article extends Component {
                 <section>
                     {this.props.article.text}
                 </section>
-                <CommentsBlock/>
+                <CommentsBlock article={this.props.article}/>
             </div>
         )
     }

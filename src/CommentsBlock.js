@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
+import Comment from './Comment'
 
 export default class CommentsBlock extends Component {
     render(){
-        const {articles} = this.props;
-        const articleElements = 'ho'/*articles.map((article) => <li key={article.id}>
-            <Article article={article} defaultOpen={true}/>
-        </li>)*/;
+        const {article} = this.props;
+        const comments = article.comments;
+        const commentsElements = comments.map((comment) => <li key={comment.id}>
+            <Comment comment={comment}/>
+        </li>);
 
         let buttonText = 'show/hide';
 
@@ -13,7 +15,7 @@ export default class CommentsBlock extends Component {
             <div>
                 <button>{buttonText}</button>
                 <ul>
-                    {articleElements}
+                    {commentsElements}
                 </ul>
             </div>
 

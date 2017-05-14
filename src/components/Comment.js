@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 function Comment(props) {
     const {text, user} = props.comment
@@ -8,6 +9,14 @@ function Comment(props) {
             {user && <b> by {user}</b>}
         </div>
     )
+}
+
+Comment.propTypes = {
+    comment: PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        user: PropTypes.string.isRequired,
+        text: PropTypes.string.isRequired
+    }).isRequired
 }
 
 

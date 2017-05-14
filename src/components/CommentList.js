@@ -1,22 +1,19 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Comment from './Comment'
 
 class CommentList extends Component {
     static defaultProps = {
         comments: []
     }
-    componentDidMount() {
-        console.log('---', 'mounted')
-    }
+
+    componentDidMount() { console.log('---', 'mounted') }
 
     componentWillReceiveProps(nextProps) {
-        console.log('---', this.props, nextProps)
+        console.log('--- componentWillReceiveProps ---\n', this.props, nextProps)
     }
 
-
-    componentWillUnmount() {
-        console.log('---', 'unmounting')
-    }
+    componentWillUnmount() { console.log('---', 'unmounting') }
 
     state = {
         isOpen: false
@@ -48,6 +45,16 @@ class CommentList extends Component {
             isOpen: !this.state.isOpen
         })
     }
+}
+
+CommentList.propTypes = {
+    comments: PropTypes.arrayOf(
+        PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            user: PropTypes.string.isRequired,
+            text: PropTypes.string.isRequired
+        })
+    ).isRequired
 }
 
 export default CommentList

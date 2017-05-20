@@ -1,30 +1,22 @@
 import React, { PropTypes, Component } from 'react'
 import ArticleList from './ArticleList'
 import Chart from './Chart'
-import Select from 'react-select'
-import DateRange from './DateRange'
-import 'react-select/dist/react-select.css'
+import Filters from './filters/index'
 import Counter from './Counter'
 import {connect} from 'react-redux'
 
 class App extends Component {
     state = {
-        user: '',
-        selection: null
-    }
+        user: ''
+    };
 
     render() {
-        const {articles} = this.props
-        const options = articles.map(article => ({
-            label: article.title,
-            value: article.id
-        }))
+        const {articles} = this.props;
         return (
             <div>
                 <Counter/>
                 User: <input type="text" value={this.state.user} onChange={this.handleUserChange}/>
-                <Select options = {options} onChange={this.handleSelectChange} value={this.state.selection} multi/>
-                <DateRange />
+                <Filters articles={articles}/>
                 <ArticleList articles={articles}/>
                 <Chart articles={articles}/>
             </div>

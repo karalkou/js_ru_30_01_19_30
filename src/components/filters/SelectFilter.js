@@ -24,8 +24,9 @@ class SelectFilter extends Component {
         )
     }
 
+    // т.е. передаем в store не объект с value и label, а только value
     handleSelectChange = (selected) => {
-        this.props.changeSelection(selected)
+        this.props.changeSelection(selected.map(option => option.value))
     }
 }
 

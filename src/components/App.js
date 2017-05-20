@@ -34,8 +34,10 @@ class App extends Component {
 
 App.propTypes = {
     articles: PropTypes.array.isRequired
-}
+};
 
-export default connect(state => ({
-    articles: state.articles
-}))(App)
+export default connect(state => {
+    return {
+        articles: state.articles
+    }
+})(App)

@@ -23,8 +23,6 @@ class App extends Component {
         )
     }
 
-    handleSelectChange = selection => this.setState({ selection })
-
     handleUserChange = (ev) => {
         if (ev.target.value.length < 10) {
             this.setState({

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import {connect} from 'react-redux'
 
 function Comment(props) {
-    const {text, user} = props.comment
+    const {text, user} = props.comment;
     return (
         <div>
             {text}
@@ -13,14 +13,14 @@ function Comment(props) {
 
 Comment.propTypes = {
     comment: PropTypes.shape({
-        id: PropTypes.number.isRequired,
+        id: PropTypes.any.isRequired,
         text: PropTypes.string.isRequired,
         user: PropTypes.string
-    }).isRequired
-}
+    })
+};
 
 export default connect((state, props) => {
-    const {id} = props
-    const comment = state.comments[id]
+    const { id } = props;
+    const comment = state.comments.entities[id];
     return { comment }
 })(Comment)

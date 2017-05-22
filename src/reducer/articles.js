@@ -34,16 +34,18 @@ export default (state = defaultState, action) => {
 
         case ADD_NEW_COMMENT:
             console.log('hoho');
-            console.log('payload.commentId: ', payload.commentId);
-            return {
-                ...state,
-                entities: {
-                    ...state.entities,
-                    [payload.articleId]: {
-                        ...state.entities[payload.articleId],
-                        comments: state.entities[payload.articleId].comments
-                    }
+            let comments = state.entities[payload.articleId].comments.slice(0);
+            comments.push(payload.commentId);
+
+            let articles = {
+                ...state.entities,
+                ...{
+                    [payload.articleId]: {...state.entities[payload.articleId], ...{comments}}
                 }
+            };
+
+            return {
+                ...state, ...{entities: articles}
             }
     }
 

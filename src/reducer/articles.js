@@ -33,19 +33,18 @@ export default (state = defaultState, action) => {
             }
 
         case ADD_NEW_COMMENT:
-            console.log('hoho');
             let comments = state.entities[payload.articleId].comments.slice(0);
             comments.push(payload.commentId);
 
             let articles = {
                 ...state.entities,
-                ...{
-                    [payload.articleId]: {...state.entities[payload.articleId], ...{comments}}
-                }
+                [payload.articleId]: {...state.entities[payload.articleId], ...{comments}}
+
             };
 
             return {
-                ...state, ...{entities: articles}
+                ...state,
+                entities: articles
             }
     }
 

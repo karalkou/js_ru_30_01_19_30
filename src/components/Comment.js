@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 function Comment(props) {
     const {text, user} = props.comment;
+    
     return (
         <div>
             {text}
@@ -21,6 +22,6 @@ Comment.propTypes = {
 
 export default connect((state, props) => {
     const { id } = props;
-    const comment = state.comments.entities[id];
+    const comment = state.comments[id];
     return { comment }
 })(Comment)

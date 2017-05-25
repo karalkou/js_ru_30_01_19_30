@@ -35,7 +35,6 @@ class App extends Component {
     }
 }
 
-App.propTypes = {
-}
+App.propTypes = {}
 
 export default connect(null, {loadAllArticles, loadAllArticlesThunk})(App)

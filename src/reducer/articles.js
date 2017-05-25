@@ -1,6 +1,6 @@
 import {DELETE_ARTICLE, LOAD_ALL_ARTICLES, ADD_COMMENT, LOAD_ARTICLE, FAIL, SUCCESS, START} from '../constants'
 import {arrayToMap} from '../utils'
-import {Map, Record} from 'immutable'
+import {Record} from 'immutable'
 import {DefaultReducerState} from './helpers'
 
 const ArticleModel = Record({

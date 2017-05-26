@@ -1,12 +1,15 @@
 import {
     INCREMENT,
-    DELETE_ARTICLE,
     CHANGE_DATE_RANGE,
     CHANGE_SELECTION,
+
     LOAD_ALL_ARTICLES,
-    LOAD_ALL_COMMENTS,
-    ADD_COMMENT,
     LOAD_ARTICLE,
+    DELETE_ARTICLE,
+
+    LOAD_ALL_COMMENTS,
+    LOAD_ARTICLE_COMMENTS,
+    ADD_COMMENT,
 
     START,
     SUCCESS,
@@ -75,6 +78,14 @@ export function loadAllComments() {
     return {
         type: LOAD_ALL_COMMENTS,
         callAPI: '/api/comment?articles'
+    }
+}
+
+export function loadArticleComments(id) {
+    return {
+        type: LOAD_ARTICLE_COMMENTS,
+        payload: { id },
+        callAPI: '/api/comment?article=' + id
     }
 }
 

@@ -1,5 +1,17 @@
-import {INCREMENT, DELETE_ARTICLE, CHANGE_DATE_RANGE, CHANGE_SELECTION, LOAD_ALL_ARTICLES, ADD_COMMENT, LOAD_ARTICLE,
-    START, SUCCESS, FAIL} from '../constants'
+import {
+    INCREMENT,
+    DELETE_ARTICLE,
+    CHANGE_DATE_RANGE,
+    CHANGE_SELECTION,
+    LOAD_ALL_ARTICLES,
+    LOAD_ALL_COMMENTS,
+    ADD_COMMENT,
+    LOAD_ARTICLE,
+
+    START,
+    SUCCESS,
+    FAIL
+} from '../constants'
 import $ from 'jquery'
 
 
@@ -56,6 +68,13 @@ export function loadAllArticlesThunk() {
                     error
                 }))
         }, 1000)
+    }
+}
+
+export function loadAllComments() {
+    return {
+        type: LOAD_ALL_COMMENTS,
+        callAPI: '/api/comment?articles'
     }
 }
 

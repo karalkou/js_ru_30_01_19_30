@@ -10,6 +10,7 @@ export const LOAD_ARTICLE = 'LOAD_ARTICLE'
 
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const LOAD_ARTICLE_COMMENTS = 'LOAD_ARTICLE_COMMENTS'
+export const LOAD_ALL_COMMENTS = 'LOAD_ALL_COMMENTS'
 
 export const START = '_START'
 export const SUCCESS = '_SUCCESS'

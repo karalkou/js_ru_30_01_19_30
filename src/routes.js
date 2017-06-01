@@ -8,6 +8,7 @@ import ArticlePage from './routeHandlers/ArticlePage'
 import NotFoundPage from './routeHandlers/NotFoundPage'
 import AuthorizedOnlyPage from './routeHandlers/AuthorizedOnlyPage'
 import ErrorPage from './routeHandlers/ErrorPage'
+import AllComments from './routeHandlers/AllComments'
 import store from './store'
 
 export default (
@@ -18,11 +19,12 @@ export default (
             </Route>
             <Route path="filters" component={Filters}/>
             <Route path="counter" component={Counter}/>
+            <Route path="all_comments" component={AllComments}/>
             <Route path="admin" component={AuthorizedOnlyPage}
                 onEnter={(routeState, replace) => {
-                    if (!store.getState().user) {
-                        replace('/error')
-                    }
+                        if (!store.getState().user) {
+                            replace('/error')
+                        }
                     }
                 }
             />

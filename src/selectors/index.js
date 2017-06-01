@@ -6,6 +6,8 @@ const filtersGetter = state => state.filters
 const idGetter = (state, props) => props.id
 
 export const filteredArticlesSelector = createSelector(articlesGetter, filtersGetter, (entities, filters) => {
+    console.log('entities: ', entities);
+    console.log('mapToArr(entities): ', mapToArr(entities));
     console.log('---', 1)
     const articles = mapToArr(entities)
     const {selected} = filters

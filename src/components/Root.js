@@ -18,6 +18,7 @@ class Root extends Component {
                         <MenuItem path="/filters" />
                         <MenuItem path="/counter" />
                         <MenuItem path="/all_comments" />
+                        <MenuItem path="/comments/1" />
                     </Menu>
                     {this.props.children}
                 </div>

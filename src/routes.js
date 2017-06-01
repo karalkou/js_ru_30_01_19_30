@@ -9,6 +9,8 @@ import NotFoundPage from './routeHandlers/NotFoundPage'
 import AuthorizedOnlyPage from './routeHandlers/AuthorizedOnlyPage'
 import ErrorPage from './routeHandlers/ErrorPage'
 import AllComments from './routeHandlers/AllComments'
+import CommentsRoot from './routeHandlers/CommentsRoot'
+import CommentsPage from './routeHandlers/CommentsPage'
 import store from './store'
 
 export default (
@@ -20,6 +22,9 @@ export default (
             <Route path="filters" component={Filters}/>
             <Route path="counter" component={Counter}/>
             <Route path="all_comments" component={AllComments}/>
+            <Route path="comments" component={CommentsRoot}>
+                <Route path=":page" component={CommentsPage} />
+            </Route>
             <Route path="admin" component={AuthorizedOnlyPage}
                 onEnter={(routeState, replace) => {
                         if (!store.getState().user) {

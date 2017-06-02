@@ -1,12 +1,20 @@
 import React, { PropTypes } from 'react'
 
-function Loader(props) {
-    return (
-        <h2>Loading...</h2>
-    )
+class Loader extends React.Component {
+    render (){
+        return (
+            <h2>{this.context.simpleLocalization[this.context.lang]['Loading']}...</h2>
+        )
+    }
+
 }
 
 Loader.propTypes = {
+}
+
+Loader.contextTypes = {
+    lang: PropTypes.string,
+    simpleLocalization: PropTypes.object,
 }
 
 export default Loader

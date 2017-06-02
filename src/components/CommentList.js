@@ -13,7 +13,9 @@ class CommentList extends Component {
     static contextTypes = {
         router: PropTypes.object,
         store: PropTypes.object,
-        user: PropTypes.string
+        user: PropTypes.string,
+        lang: PropTypes.string,
+        simpleLocalization: PropTypes.object,
     }
 
     state = {
@@ -27,10 +29,14 @@ class CommentList extends Component {
     }
 
     render() {
-        const actionText = this.state.isOpen ? 'hide' : 'show'
+        const actionText = this.state.isOpen
+            ?
+            this.context.simpleLocalization[this.context.lang]['hide']
+            :
+            this.context.simpleLocalization[this.context.lang]['show'];
         return (
             <div>
-                <a href="#" onClick={this.toggleOpen}>{actionText} comments</a>
+                <a href="#" onClick={this.toggleOpen}>{actionText} {this.context.simpleLocalization[this.context.lang]['comments']}</a>
                 {this.getBody()}
             </div>
         )
@@ -52,7 +58,7 @@ class CommentList extends Component {
 
         const commentItems = comments.map(id => <li key={id}><Comment id={id} /></li>)
         return <div>
-            Username: {this.context.user}
+            {this.context.simpleLocalization[this.context.lang]['Username']}: {this.context.user}
             <ul>{commentItems}</ul>
             <NewCommentForm articleId={id} />
         </div>

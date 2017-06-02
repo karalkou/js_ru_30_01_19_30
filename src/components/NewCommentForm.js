@@ -7,6 +7,11 @@ class NewCommentForm extends Component {
         articleId: PropTypes.string.isRequired
     }
 
+    static contextTypes = {
+        lang: PropTypes.string,
+        simpleLocalization: PropTypes.object,
+    }
+
     state = {
         text: '',
         user: ''
@@ -31,8 +36,8 @@ class NewCommentForm extends Component {
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>
-                comment: <input type="text" value={this.state.text} onChange = {this.handleChange('text')}/>
-                user: <input type="text" value={this.state.user} onChange = {this.handleChange('user')}/>
+                {this.context.simpleLocalization[this.context.lang]['comment']}: <input type="text" value={this.state.text} onChange = {this.handleChange('text')}/>
+                {this.context.simpleLocalization[this.context.lang]['user']}: <input type="text" value={this.state.user} onChange = {this.handleChange('user')}/>
                 <input type = "submit"/>
             </form>
         )
